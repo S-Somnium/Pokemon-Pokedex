@@ -1,0 +1,95 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.content .pages {
+  height: calc(100vh - 56px);
+  padding: 10px;
+}
+
+.home .card {
+  background: linear-gradient(0deg, #fe0000 0%, #451c1c 6%, #232a28 40%);
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+  width: 200px;
+  height: 250px;
+  display: flex;
+  padding: 0px;
+  margin: auto;
+  margin-top: 30px;
+  border: none;
+  box-shadow: 5px 5px 13px 5px rgba(0, 0, 0, 0.2);
+  transition: 0.5s all;
+}
+.home .card:hover {
+  transform: translateY(-10px);
+  box-shadow: 5px 16px 15px 5px rgba(0, 0, 0, 0.2);
+}
+.home .card img {
+  border: 2px solid grey;
+  border-radius: 5px 5px 0 0;
+  filter: grayscale(100%);
+}
+.home .card .name {
+  font-size: 1.3em;
+  text-transform: capitalize;
+  font-weight: 500;
+  padding-top: 8px;
+  border-radius: 0px 0px 5px 5px;
+  text-align: center;
+  width: 100%;
+  height: 50px;
+  background-color: white;
+  text-overflow: "...";
+  white-space: nowrap;
+  overflow: hidden;
+}
+.home .card span {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 12px;
+  height: 12px;
+  border-radius: 100px;
+  background-color: white;
+  border: 2px solid black;
+}
+.home .paginator {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.detail {
+  width: 100%;
+  max-width: 600px;
+  height: 100%;
+  display: flex;
+  align-content: center;
+  margin: auto;
+  padding-top: 20px;
+}
+.detail .name {
+  margin-left: 50px;
+  font-weight: 700;
+  font-size: 1.5em;
+}
+.detail .name span {
+  font-weight: 400;
+  color: grey;
+  font-size: 0.8em;
+  margin-left: 10px;
+}
+.detail .title {
+  color: grey;
+  font-weight: 600;
+}
+
+.navbar .links {
+  color: white;
+  padding-left: 20px;
+  text-decoration: none;
+  padding-top: 2px;
+}
