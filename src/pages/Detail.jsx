@@ -9,7 +9,7 @@ const Detail = () => {
   return (
     <div
       className="detail"
-      style={{ boxShadow: "5px 16px 20px 5px " + getColor("dragon") }}>
+      style={{ boxShadow: "0px 0px 0px 3000px " + getColor("dragon") , borderRadius:"20px"}}>
       <Container>
         <Row>
           <Col>
@@ -49,9 +49,9 @@ const Detail = () => {
               friend-guard
             </Row>
           </Col>
-          <Col>
-            <Row></Row>
-          </Col>
+        </Row>
+        <Row>
+          <Col>abc</Col>
         </Row>
       </Container>
     </div>
