@@ -27,9 +27,9 @@ const Home = () => {
           <PokemonCard
             name={item.name}
             image={
-              "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" +
+              "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/" +
               item.url.split("/")[6] +
-              ".png"
+              ".svg"
             }
           />
         </Col>

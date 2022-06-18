@@ -6,6 +6,7 @@ const PaginatorBar = ({ page, setPage }) => {
   let buttons = [];
 
   for (let x = 0; x < 6; x++) {
+    if(x + rowIndex * 5 >31)continue
     if (x + rowIndex * 5 === page) {
       buttons.push(<Pagination.Item active>{page + 1}</Pagination.Item>);
     } else {
@@ -32,10 +33,10 @@ const PaginatorBar = ({ page, setPage }) => {
       {buttons[2]}
       {buttons[3]}
       {buttons[4]}
-      {page !== 54 ? ( // end of pages
+      {page !== 31 ? ( // end of pages
         <>
           <Pagination.Next onClick={() => setPage(page + 1)} />
-          <Pagination.Last onClick={() => setPage(54)} />
+          <Pagination.Last onClick={() => setPage(31)} />
         </>
       ) : (
         <></>

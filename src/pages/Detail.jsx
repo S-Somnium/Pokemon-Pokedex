@@ -3,9 +3,9 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useParams } from "react-router-dom";
-import { getColor } from "../services/util";
+import { getColor } from "../services/pokeapi";
 
-const Detail = () => {
+const Detail = (props) => {
   return (
     <div
       className="detail"
@@ -17,7 +17,13 @@ const Detail = () => {
               Bagon <span>#371</span>
             </div>
           </Col>
-          <Col>Salvar</Col>
+          <Col>
+          <div className="capturar">
+            <div className="pokebola">
+            <div className="bola"></div>
+            </div>
+          </div>
+          </Col>
         </Row>
         <Row>
           <br />
@@ -51,7 +57,7 @@ const Detail = () => {
           </Col>
         </Row>
         <Row>
-          <Col>abc</Col>
+          <Col></Col>
         </Row>
       </Container>
     </div>
