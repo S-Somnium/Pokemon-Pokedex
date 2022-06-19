@@ -1,36 +1,26 @@
 import React, { useMemo, useState, useEffect } from "react";
-import PokemonCard from "../components/PokemonCard";
+import PokemonCard from "../components/card/PokemonCard";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { getPageOfPokemons } from "../services/pokeapi";
-import PaginatorBar from "../components/PaginatorBar";
+import PaginatorBar from "../components/paginator/PaginatorBar";
 import initial from "../assets/start_data.json";
 
 const Home = () => {
   const [page, setPage] = useState(0);
-  const [list, setList] = useState(initial);
+  const [list, setList] = useState(initial);// initial is the first 20 pokemons saved.
 
   useEffect(() => {
-    getPokemons();
+    getPageOfPokemons(page).then(pokemons=>setList(pokemons))
   }, [page]);
 
-  const getPokemons = async () => {
-    let pokemons = await getPageOfPokemons(page);
-    setList(pokemons);
-  };
-
   const Pokemons = useMemo(() => {
-    return list.results.map((item, index) => {
+    return list.results.map((item) => {
       return (
         <Col key={item.name}>
           <PokemonCard
             name={item.name}
-            image={
-              "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/" +
-              item.url.split("/")[6] +
-              ".svg"
-            }
           />
         </Col>
       );

@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
+  text-transform: capitalize;
 }
 
 .content .pages {
@@ -9,39 +10,24 @@
   background-color: aliceblue;
 }
 
-.home {
+.home, .favorites {
   background-color: aliceblue;
 }
-.home .card {
+.home .card, .favorites .card {
   border-radius: 10px;
-  position: relative;
-  cursor: pointer;
   width: 200px;
   height: 220px;
-  display: flex;
-  padding: 0px;
-  margin: auto;
-  margin-top: 30px;
-  border: none;
-  box-shadow: 0px 10px 51px -5px rgba(183, 189, 193, 0.3);
-  transition: 0.5s all;
 }
-.home .card:hover {
-  transform: translateY(-10px);
-  box-shadow: 5px 16px 15px 5px rgba(0, 0, 0, 0.2);
-}
-.home .card .imgHolder {
+.home .card .imgHolder, .favorites .card .imgHolder {
   margin: auto;
-  padding: 20px;
   border-radius: 100%;
+  padding: 5px;
 }
-.home .card .imgHolder img {
+.home .card .imgHolder img, .favorites .card .imgHolder img {
   margin: auto;
 }
-.home .card .name {
-  padding-left: 20px;
+.home .card .name, .favorites .card .name {
   font-size: 1.2em;
-  text-transform: capitalize;
   font-weight: 500;
   padding-top: 8px;
   border-radius: 0px 0px 5px 5px;
@@ -52,12 +38,12 @@
   white-space: nowrap;
   overflow: hidden;
 }
-.home .card .name .pokeID {
+.home .card .name .pokeID, .favorites .card .name .pokeID {
   color: grey;
   font-size: 0.8em;
   margin-left: 10px;
 }
-.home .paginator {
+.home .paginator, .favorites .paginator {
   margin-top: 30px;
   display: flex;
   justify-content: center;
@@ -85,22 +71,59 @@
   font-size: 0.8em;
   margin-left: 10px;
 }
+.detail .stats {
+  padding: 5px;
+  margin-left: 10px;
+  max-width: 130px;
+  color: gray;
+  font-weight: 400;
+}
+.detail .statsBar {
+  overflow: hidden;
+}
+.detail .statsBar .bar {
+  margin-top: 15px;
+  background-color: #4d45be;
+  height: 5px;
+  border-radius: 10px;
+  transition: 1s all;
+  animation: grow 1s;
+}
 .detail .title {
   color: grey;
   font-weight: 600;
 }
-
-.navbar .links {
+.detail .types {
   color: white;
-  padding-left: 20px;
-  text-decoration: none;
-  padding-top: 2px;
+  padding: 3px;
+  border-radius: 10px;
+  margin: 2px;
+  min-width: 50px;
+  text-align: center;
+  font-weight: 500;
 }
-
-.pokebola {
+.detail .abilities {
+  margin-right: 10px;
+}
+.detail .capturar {
+  position: relative;
+  width: 110px;
+  height: 30px;
+  background-color: white;
+  border-radius: 50px 100px 100px 50px;
+  float: right;
+  padding-top: 3px;
+  padding-left: 3px;
+  border: 2px solid black;
+  cursor: pointer;
+}
+.detail .capturar:hover .pokebola {
+  transform: rotateX(1062deg);
+}
+.detail .capturar .pokebola {
   position: absolute;
-  right: 20px;
-  top: 10px;
+  right: -2px;
+  top: -2px;
   width: 30px;
   height: 30px;
   text-align: center;
@@ -108,9 +131,9 @@
   border-radius: 100%;
   border: 2px solid black;
   overflow: hidden;
-  cursor: pointer;
+  transition: 1s all;
 }
-.pokebola .bola {
+.detail .capturar .pokebola .bola {
   box-shadow: 0px 40px 0px 33px white, 0px 40px 0px 35px #000000;
   position: absolute;
   right: 33%;
@@ -120,4 +143,53 @@
   background-color: white;
   border-radius: 100%;
   border: 2px solid black;
+}
+
+.navbar .links {
+  color: white;
+  padding-left: 20px;
+  text-decoration: none;
+  padding-top: 2px;
+}
+
+/*util*/
+.flip-card {
+  width: 200px;
+  height: 220px;
+  perspective: 1000px;
+  margin: auto;
+  margin-top: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 10px 51px -5px rgba(183, 189, 193, 0.3);
+  cursor: pointer;
+}
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+.flip-card .flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+.flip-card .flip-card-inner .flip-card-front, .flip-card .flip-card-inner .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.flip-card .flip-card-inner .flip-card-back {
+  transform: rotateY(180deg);
+}
+
+@keyframes grow {
+  from {
+    width: 0px;
+  }
+  to {
+    width: 100%;
+  }
 }

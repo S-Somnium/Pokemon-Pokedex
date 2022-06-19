@@ -1,9 +1,8 @@
 * {
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
+  text-transform: capitalize;
 }
-
-
 
 .content {
   .pages {
@@ -13,37 +12,23 @@
   }
 }
 
-.home {
+.home,.favorites {
   background-color: aliceblue;
   .card {
     border-radius: 10px;
-    position: relative;
-    cursor: pointer;
     width: 200px;
     height: 220px;
-    display: flex;
-    padding: 0px;
-    margin: auto;
-    margin-top: 30px;
-    border: none;
-    box-shadow: 0px 10px 51px -5px rgb(183 189 193 / 30%);
-    transition: 0.5s all;
-    &:hover {
-      transform: translateY(-10px);
-      box-shadow: 5px 16px 15px 5px rgba(0, 0, 0, 0.2);
-    }
     .imgHolder{
       margin: auto;
-      padding: 20px;
       border-radius: 100%;
+      padding: 5px;
       img{
         margin:auto;
       }
     }
     .name {
-      padding-left: 20px;
       font-size: 1.2em;
-      text-transform: capitalize;
+      
       font-weight: 500;
       padding-top: 8px;
       border-radius: 0px 0px 5px 5px;
@@ -81,6 +66,7 @@
     margin-left:0px;
     font-weight: 700;
     font-size: 1.5em;
+    
     span {
       font-weight: 400;
       color: grey;
@@ -88,11 +74,83 @@
       margin-left: 10px;
     }
   }
+  .stats{
+    padding: 5px;
+    margin-left: 10px; 
+    max-width: 130px;
+    color: gray;
+    font-weight: 400;
+  }
+  .statsBar{
+    overflow: hidden;
+    .bar{
+      margin-top: 15px;
+      background-color: rgb(77, 69, 190);
+      height: 5px;
+      border-radius: 10px;
+      transition: 1s all;
+      animation: grow 1s;
+    }
+  }
   .title {
     color: grey;
     font-weight: 600;
   }
-  
+  .types{
+    color: white;
+    padding: 3px;
+    border-radius: 10px;
+    margin: 2px;
+    min-width: 50px;
+    text-align: center;
+    
+    font-weight: 500;
+  }
+  .abilities{
+    margin-right: 10px;
+    
+  }
+  .capturar{
+    position: relative;
+    width: 110px;
+    height: 30px;
+    background-color: white;
+    border-radius: 50px 100px 100px 50px;
+    float: right;
+    padding-top: 3px;
+    padding-left: 3px;
+    border: 2px solid black;
+    cursor: pointer;
+    &:hover{
+        .pokebola{
+        transform: rotateX(1062deg);
+      }
+    }
+    .pokebola{
+      position: absolute;
+      right: -2px;
+      top: -2px;
+      width: 30px;
+      height: 30px;
+      text-align: center;
+      background-color: red;
+      border-radius: 100%;
+      border: 2px solid black;
+      overflow: hidden;
+      transition: 1s all;
+      .bola{
+        box-shadow:0px 40px 0px 33px white,0px 40px 0px 35px #000000;
+        position: absolute;
+        right: 33%;
+        top: 33%;
+        width: 10px;
+        height: 10px;
+        background-color: white;
+        border-radius: 100%;
+        border: 2px solid black;
+      }
+    }
+  }
 }
 
 .navbar {
@@ -104,27 +162,45 @@
   }
 }
 
-.pokebola{
-  position: absolute;
-  right: 20px;
-  top: 10px;
-  width: 30px;
-  height: 30px;
-  text-align: center;
-  background-color: red;
-  border-radius: 100%;
-  border: 2px solid black;
-  overflow: hidden;
+/*util*/
+
+
+.flip-card {
+  width: 200px;
+  height: 220px;
+  perspective: 1000px;
+  margin: auto;
+  margin-top: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 10px 51px -5px rgb(183 189 193 / 30%);
   cursor: pointer;
-  .bola{
-    box-shadow:0px 40px 0px 33px white,0px 40px 0px 35px #000000;
-    position: absolute;
-    right: 33%;
-    top: 33%;
-    width: 10px;
-    height: 10px;
-    background-color: white;
-    border-radius: 100%;
-    border: 2px solid black;
+  &:hover{
+    .flip-card-inner{
+      transform: rotateY(180deg);
+    }
   }
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+    .flip-card-back{
+      transform: rotateY(180deg);
+    }
+  }
+}
+
+@keyframes grow {
+  from {width: 0px;}
+  to {width:100%;}
 }

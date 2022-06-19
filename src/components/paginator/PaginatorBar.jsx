@@ -1,12 +1,15 @@
 import React from "react";
 import Pagination from "react-bootstrap/Pagination";
 
+const finalPage = 43 // after this pages we dont have all the images :(
+
 const PaginatorBar = ({ page, setPage }) => {
   let rowIndex = Math.trunc(page / 5);
   let buttons = [];
 
-  for (let x = 0; x < 6; x++) {
-    if(x + rowIndex * 5 >31)continue
+  // we need dont reactMemo because each time we change the page the buttons change anyway.
+  for (let x = 0; x < 6; x++) { // creating the buttons 
+    if(x + rowIndex * 5 >finalPage)continue
     if (x + rowIndex * 5 === page) {
       buttons.push(<Pagination.Item active>{page + 1}</Pagination.Item>);
     } else {
@@ -33,10 +36,10 @@ const PaginatorBar = ({ page, setPage }) => {
       {buttons[2]}
       {buttons[3]}
       {buttons[4]}
-      {page !== 31 ? ( // end of pages
+      {page !== finalPage ? ( 
         <>
           <Pagination.Next onClick={() => setPage(page + 1)} />
-          <Pagination.Last onClick={() => setPage(31)} />
+          <Pagination.Last onClick={() => setPage(finalPage)} />
         </>
       ) : (
         <></>
