@@ -1,5 +1,5 @@
 # Pokemon-Pokedex
- A pokedex made with the pokeapi that shows 880 different pokemons along side with their technical details.
+ A pokedex made with the pokeapi that shows 880 different pokemons along side with their technical details. You can also capture the pokemon to go to the favorites list.
 
 # Images not loading ?
  if the images are not loading, your dns is probably blocking the image repository. Try using a vpn or proxy to resolve the issue.
