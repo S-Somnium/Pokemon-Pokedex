@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Card = ({goToPokemon,backgroundColor,pokemonID,name,back}) => {
+const Card = ({backgroundColor,pokemonID,name,back}) => {
 
     return (
-        <div className="card" onClick={goToPokemon}>
+        <div className="card" >
       <div className="imgHolder" style={{ backgroundColor }}>
         <img
           src={

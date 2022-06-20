@@ -21,13 +21,13 @@ const PokemonCard = ({ name }) => {
   const goToPokemon = () => navigate("/pokemon/" + name);
 
   return (
-    <div className="flip-card">
+    <div className="flip-card" data-testid="PokemonCard" onClick={goToPokemon}>
       <div className="flip-card-inner">
         <div className="flip-card-front">
-          <Card back={invertCard} goToPokemon={goToPokemon} backgroundColor={backgroundColor} pokemonID={pokemonID} name={name}/>
+          <Card back={invertCard} backgroundColor={backgroundColor} pokemonID={pokemonID} name={name}/>
         </div>
         <div className="flip-card-back">
-        <Card back={!invertCard} goToPokemon={goToPokemon} backgroundColor={backgroundColor} pokemonID={pokemonID} name={name}/>
+        <Card back={!invertCard} backgroundColor={backgroundColor} pokemonID={pokemonID} name={name}/>
         </div>
       </div>
     </div>

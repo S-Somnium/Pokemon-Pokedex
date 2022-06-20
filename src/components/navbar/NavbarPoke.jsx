@@ -7,7 +7,7 @@ const NavbarPoke = () => {
   return (
     <Navbar bg="dark" variant="dark" className="navbar" sticky="top">
       <Container>
-        <Nav className="me-auto">
+        <Nav>
           <Link to="/" className="links">
             Pokedex
           </Link>
