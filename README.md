@@ -1,6 +1,9 @@
 # Pokemon-Pokedex
  A pokedex made with the pokeapi that shows 880 different pokemons along side with their technical details.
 
+# Images not loading ?
+ if the images are not loading, your dns is probably blocking the image repository. Try using a vpn or proxy to resolve the issue.
+
 # Technical Requiments
 - [x] Use of reactjs.
 - [x] Use of react-router-dom.
